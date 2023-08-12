@@ -17,27 +17,22 @@ Array array_create(size_t capacity, int value) {
 void array_destroy(Array *arr) {
 	free(arr->arr);
 }
-
 void array_resize(Array *arr, size_t capacity) {
 	arr->capacity = capacity;
 	arr->arr = realloc(arr->arr, capacity * sizeof *arr->arr);
 	if(arr->arr == NULL) fprintf(stderr, "array_resize failed: realloc"), exit(1);
 }
-
 void array_print(Array *arr) {
 	printf("[%d / %d] \t", arr->length, arr->capacity);
 	for(size_t i = 0; i < arr->length; i++) printf("%d ", arr->arr[i]);
 	printf("\n");
 }
 
-
-
 void array_push(Array *arr, int value) {
 	// If there is no space left, increase the capacity by 2 times
 	if(arr->length == arr->capacity) array_resize(arr, arr->capacity * 2);
 	arr->arr[arr->length++] = value;
 }
-
 int array_pop(Array *arr) {
 	if(arr->length == 0) fprintf(stderr, "array_pop failed: length == 0"), exit(1);
 

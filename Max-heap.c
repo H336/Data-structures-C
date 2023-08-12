@@ -69,10 +69,10 @@ int heap_pop(Heap *h) {
 int main() {
 	Heap h = heap_create();
 
-	heap_push(&h, 10);heap_print(&h);  //  [1 / 1] 10
-	heap_push(&h, 48);heap_print(&h);  //  [2 / 2] 48 10
+	heap_push(&h, 10); heap_print(&h); //  [1 / 1] 10
+	heap_push(&h, 48); heap_print(&h); //  [2 / 2] 48 10
 	heap_push(&h, 100);heap_print(&h); //  [3 / 4] 100 10 48
-	heap_push(&h, 56);heap_print(&h);  //  [4 / 4] 100 56 48 10
+	heap_push(&h, 56); heap_print(&h); //  [4 / 4] 100 56 48 10
 	printf("\n");
 	printf("pop %d\n", heap_pop(&h));  //  pop 100
 	printf("pop %d\n", heap_pop(&h));  //  pop 56
